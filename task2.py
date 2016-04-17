@@ -9,7 +9,7 @@ def odeFunc(y, t, a,b):
     return ode_eqn
     
 def solve(a,b,t,init_cond,name):
-    mp.rcParams['font.size'] = 14
+    mp.rcParams['font.size'] = 10
     sols = si.odeint(odeFunc, init_cond, t, args=(a, b)) #solve the ode
     
     #plot y0 and y1 against t
@@ -19,7 +19,7 @@ def solve(a,b,t,init_cond,name):
     plt.xlabel('t')
     plt.ylabel('y')
     plt.legend(loc='best')
-    fig.set_size_inches(10, 10)
+    fig.set_size_inches(6, 6)
     plt.grid()
     temp='{}{} {}{}'.format('Plot of y against t with initial condition of y0=',init_cond[0],'and y1=', init_cond[1])
     plt.title(temp)
@@ -32,7 +32,7 @@ def solve(a,b,t,init_cond,name):
     plt.plot(sols[:,0],sols[:,1],'g')
     plt.xlabel('y0')
     plt.ylabel('y1')
-    fig.set_size_inches(10, 10)
+    fig.set_size_inches(6, 6)
     plt.grid()
     temp='{}{} {}{}'.format('Plot of y1 against y0 with initial condition of y0=',init_cond[0],'and y1=', init_cond[1])
     plt.title(temp)
@@ -46,7 +46,6 @@ if __name__ == "__main__":
     a=1.0
     b=0.2
     t=np.linspace(0,5,101)
-    mp.rcParams['font.size'] = 16
     
     #part1
     init_cond1=[0.1,1.0]
